@@ -1,12 +1,14 @@
 package imp
 
+const DefaultK = 1 // if OP_FLAG_LOOP is not setted, will be used default k value
+
 type Instruction = uint8
 
 const (
-	OP_FLAG_LOOP Instruction = 1 << 4 << iota
-	OP_FLAG_COND_L
-	OP_FLAG_COND_E
-	OP_FLAG_COND_G
+	OP_FLAG_LOOP   Instruction = 1 << 4 << iota // gets k value from stack
+	OP_FLAG_COND_L                              // will executed if is lower -> x<y
+	OP_FLAG_COND_E                              // will executed if is equal -> x=y
+	OP_FLAG_COND_G                              // will executed if is greater -> x>y
 
 	OP_MASK_CODE = OP_FLAG_LOOP - 1
 	OP_MASK_FLAG = ^OP_MASK_CODE
