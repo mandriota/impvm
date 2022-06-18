@@ -15,25 +15,18 @@ const (
 const (
 	OP_CODE_REDO = iota & OP_MASK_CODE // redo head element k times
 	OP_CODE_UNDO                       // undo head element k times
-	OP_CODE_SWAP                       // swap head element and k agreat element
-	_                                  // ? reserved
-	OP_CODE_LGRO                       // rotate stack alow-agreat k times
-	OP_CODE_GLRO                       // rotate stack agreat-alow k times
-	OP_CODE_TYPE                       // next type position from 0 k times -> type_table[k]
-	OP_CODE_CODE                       // next code position from 0 k times -> code_table[k]
+	OP_CODE_HSWP                       // swap head element with kth agreat element
+	OP_CODE_TSWP                       // swap head element with kth alow element
+	OP_CODE_HROT                       // rotate stack agreat-alow k times
+	OP_CODE_TROT                       // rotate stack alow-agreat k times
+	OP_CODE_JTYP                       // jump to next type position from 0 k times -> type_table[k]
+	OP_CODE_JCOD                       // jump to next code position from 0 k times -> code_table[k]
 	OP_CODE_IPUT                       // put data k times
 	OP_CODE_OPUT                       // get data k times
-	OP_CODE_INCR                       // increase head element (x) for 1 k times -> x+k
-	OP_CODE_DECR                       // decrease head element (x) for 1 k times -> x-k
-	OP_CODE_ADD                        // add to head element (x) it self initial value k times -> x*k
-	OP_CODE_SUB                        // sub from head element (x) it self initial value and increase counter for 1 -> x/k
-	OP_CODE_MUL                        // multiply
-	_                                  // ? reserved
+	OP_CODE_AINC                       // increase head element (x) for 1 k times -> x+k
+	OP_CODE_ADEC                       // decrease head element (x) for 1 k times -> x-k
+	OP_CODE_AADD                       // add to head element (x) it self initial value k times -> x*k
+	OP_CODE_ASUB                       // sub from head element (x) it self initial value and increase counter for 1 -> x/k
+	OP_CODE_AMUL                       // multiply head element (x) it self initial value k times -> x^k
+	OP_CODE_AQUO                       // -> log.k(x)
 )
-
-/*
-REDO 3 : 2
-
-*/
-
-// TODO: Rotate in area
