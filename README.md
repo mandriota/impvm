@@ -32,8 +32,8 @@ INDEX
 | ---- | ----- | --------- | --------- | --------------------------- |
 | 0x0  | REDO  | mm        | mm; mm    | duplicate last              |
 | 0x1  | UNDO  | mm        |           | delete last                 |
-| 0x2  | HROT  | mm; mm    | mm; mm    | rotate stack down-up        |
-| 0x3  | TROT  | mm; mm    | mm; mm    | rotate stack up-down        |
+| 0x2  | HROT  | mm; mm    | mm; mm    | rotate stack up-down        |
+| 0x3  | TROT  | mm; mm    | mm; mm    | rotate stack down-up        |
 | 0x4  | SWAP  | mm; mm    | mm; mm    | exchange 2 elements         |
 | 0x5  | JUMP  |           | mm        | jump to code position       |
 | 0x6  | TEST  |           | mm        | compare values              |
