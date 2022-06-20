@@ -126,14 +126,15 @@ func (m *Machine) OpTEST() {
 }
 
 func (m *Machine) OpOPUT() {
-	fmt.Fprintf(m.w, "oput: %d\n", m.Memo.PopHead())
+	fmt.Fprintf(m.w, "result: %d\n", m.Memo.PopHead())
 }
 
 func (m *Machine) OpIPUT() {
-	println("iput called.")
-	dst := m.Memo.PopHead()
-	fmt.Fscan(m.r, &dst)
-	m.Memo.AddHead(dst)
+	fmt.Fprintf(m.w, "enter number: ")
+	m.w.Flush()
+
+	m.Memo.AddHead(0)
+	fmt.Fscan(m.r, m.Memo.GetHead(1))
 }
 
 func (m *Machine) OpLINC() {
