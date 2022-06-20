@@ -1,25 +1,29 @@
 package imp
 
 import (
-	"bufio"
 	"math"
 	"os"
 	"testing"
 )
 
 func TestMachineRun(t *testing.T) {
-	m := &Machine{
-		w:    bufio.NewWriter(os.Stdout),
-		r:    bufio.NewReader(os.Stdin),
-		Memo: *NewStack(),
-		Text: []uint8{
-			OP_CODE_IPUT,
-			OP_CODE_QINC | OP_FLAG_LOOP,
-			OP_CODE_OPUT,
-		},
-	}
+	m := NewMachine(os.Stdout, os.Stdin)
 
-	m.Memo.AddHead(2)
+	m.Text = []uint8{
+		OP_CODE_IPUT,
+		OP_CODE_REDO,
+		OP_CODE_REDO,
+		OP_CODE_IPUT,
+		OP_CODE_SWAP,
+		OP_CODE_LDEC,
+		OP_CODE_REDO,
+		OP_CODE_HROT,
+		OP_CODE_REDO | OP_FLAG_LOOP,
+		OP_CODE_TROT,
+		OP_CODE_QINC | OP_FLAG_LOOP,
+		OP_CODE_OPUT,
+		OP_CODE_OPUT,
+	}
 
 	m.Run()
 }

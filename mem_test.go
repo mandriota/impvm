@@ -5,7 +5,8 @@ import (
 )
 
 func TestStack(t *testing.T) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	stack.AddHead(13)
 
@@ -14,7 +15,8 @@ func TestStack(t *testing.T) {
 }
 
 func BenchmarkAddHead(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		stack.AddHead(13)
@@ -22,7 +24,8 @@ func BenchmarkAddHead(b *testing.B) {
 }
 
 func BenchmarkAddTail(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		stack.AddTail(13)
@@ -30,7 +33,8 @@ func BenchmarkAddTail(b *testing.B) {
 }
 
 func BenchmarkPopHead(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		stack.PopHead()
@@ -38,7 +42,8 @@ func BenchmarkPopHead(b *testing.B) {
 }
 
 func BenchmarkPopTail(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		stack.PopTail()
@@ -46,7 +51,8 @@ func BenchmarkPopTail(b *testing.B) {
 }
 
 func BenchmarkAddHeadPopHead(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		stack.AddHead(13)
@@ -55,7 +61,8 @@ func BenchmarkAddHeadPopHead(b *testing.B) {
 }
 
 func BenchmarkAddHeadPopTail(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		stack.AddHead(13)
@@ -64,7 +71,8 @@ func BenchmarkAddHeadPopTail(b *testing.B) {
 }
 
 func BenchmarkAddTailPopHead(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		stack.AddTail(13)
@@ -73,7 +81,8 @@ func BenchmarkAddTailPopHead(b *testing.B) {
 }
 
 func BenchmarkAddTailPopTail(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		stack.AddTail(13)
@@ -81,7 +90,8 @@ func BenchmarkAddTailPopTail(b *testing.B) {
 	}
 }
 func BenchmarkPopHeadAddHeadAddHead(b *testing.B) {
-	stack := NewStack()
+	stack := new(Stack)
+	stack.Reset()
 
 	for i := 0; i < b.N; i++ {
 		el := stack.PopHead()

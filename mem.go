@@ -10,11 +10,9 @@ type Stack struct {
 	headP, tailP uint64
 }
 
-func NewStack() *Stack {
-	return &Stack{
-		headP: StackLen / 2,
-		tailP: StackLen / 2,
-	}
+func (s *Stack) Reset() {
+	s.headP = StackLen / 2
+	s.tailP = StackLen / 2
 }
 
 func (s *Stack) GetHead(i uint64) *Kind {

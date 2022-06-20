@@ -7,10 +7,13 @@ import (
 )
 
 func NewMachine(w io.Writer, r io.Reader) *Machine {
-	return &Machine{
+	m := &Machine{
 		w: bufio.NewWriter(w),
 		r: bufio.NewReader(r),
 	}
+	m.Memo.Reset()
+
+	return m
 }
 
 type Registers struct {
@@ -107,6 +110,7 @@ func (m *Machine) OpSWAP() {
 }
 
 func (m *Machine) OpJUMP() {
+	m.Memo.AddHead(m.regs.TextP)
 	m.regs.TextP = m.regs.Count
 }
 
