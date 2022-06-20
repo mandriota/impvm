@@ -61,4 +61,4 @@ If flag is setted, then pops `N` from the stack and
 | 0b001  | GF   | `GF`             | `x>y` (greater)             |
 | 0b110  | NGF  | `LF`; `EF`       | `x≤y` (not greater)         |
 | 0b111  | AF   | `LF`; `GF`; `EF` | `1` (always)                |
-| 0b000  | NF   |                  | `PREVIOUS_SUCCESS` (noways) |
+| 0b000  | AF   |                  | `1` (always)                |
