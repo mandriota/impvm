@@ -1,11 +1,8 @@
 package imp
 
-const StackLen = 1 << 24
+const StackLen = 1 << 20
 
-type Kind struct {
-	Typ int64
-	Let int64
-}
+type Kind = int64
 
 type Stack struct {
 	data [StackLen]Kind
@@ -18,6 +15,10 @@ func NewStack() *Stack {
 		headP: StackLen / 2,
 		tailP: StackLen / 2,
 	}
+}
+
+func (s *Stack) GetHead() *Kind {
+	return &s.data[(s.headP-1)%StackLen]
 }
 
 func (s *Stack) AddHead(el Kind) {
@@ -38,14 +39,4 @@ func (s *Stack) PopHead() Kind {
 func (s *Stack) PopTail() Kind {
 	s.tailP--
 	return s.data[(StackLen-1-s.tailP)%StackLen]
-}
-
-func (s *Stack) DupHead() {
-	s.data[s.headP%StackLen] = s.data[(s.headP-1)%StackLen]
-	s.headP++
-}
-
-func (s *Stack) SwpHead() {
-	s.data[(s.headP-1)%StackLen], s.data[(s.headP-2)%StackLen] =
-		s.data[(s.headP-2)%StackLen], s.data[(s.headP-1)%StackLen]
 }
