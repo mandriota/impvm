@@ -16,18 +16,15 @@ const (
 const (
 	OP_CODE_REDO = iota & OP_MASK_CODE // redo head element k times
 	OP_CODE_UNDO                       // undo head element k times
-	OP_CODE_HSWP                       // swap head element with kth agreat element
-	OP_CODE_TSWP                       // swap head element with kth alow element
 	OP_CODE_HROT                       // rotate stack agreat-alow k times
 	OP_CODE_TROT                       // rotate stack alow-agreat k times
-	OP_CODE_JPAT                       // jump to next type position from 0 k times -> type_table[k]
-	OP_CODE_JTXT                       // jump to next text position from 0 k times -> code_table[k]
-	OP_CODE_IPUT                       // put data (x) k times
-	OP_CODE_OPUT                       // get data (x) k times
+	OP_CODE_SWAP                       // swap heads elements
+	OP_CODE_JUMP                       // jump to next text position from 0 k times -> code_table[k]
+	OP_CODE_TEST                       // test head element and sets flags
+	OP_CODE_IPUT                       // put data k times
+	OP_CODE_OPUT                       // get data k times
 	OP_CODE_LINC                       // linear increment -> x+k
 	OP_CODE_LDEC                       // linear decrement -> x-k
 	OP_CODE_QINC                       // quadratic increment -> x*k
-	OP_CODE_QDEC                       // quadratic decrement -> x/k
-	OP_CODE_CINC                       // cubic increment -> x^k
-	OP_CODE_CDEC                       // cubic decrement -> ln(x)/ln(k)
+	OP_CODE_QDEC                       // quadratic decrement with rest -> x/k
 )

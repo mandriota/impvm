@@ -13,16 +13,12 @@ func TestMachineRun(t *testing.T) {
 		r:    bufio.NewReader(os.Stdin),
 		Memo: *NewStack(),
 		Text: []uint8{
-			OP_CODE_LINC | OP_FLAG_LOOP,
+			OP_CODE_IPUT,
 			OP_CODE_QINC | OP_FLAG_LOOP,
-			OP_CODE_REDO,
-			OP_CODE_OPUT,
 			OP_CODE_OPUT,
 		},
 	}
 
-	m.Memo.AddHead(9)
-	m.Memo.AddHead(1)
 	m.Memo.AddHead(2)
 
 	m.Run()

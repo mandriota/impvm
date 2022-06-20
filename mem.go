@@ -7,7 +7,7 @@ type Kind = int64
 type Stack struct {
 	data [StackLen]Kind
 
-	headP, tailP uint32
+	headP, tailP uint64
 }
 
 func NewStack() *Stack {
@@ -17,8 +17,8 @@ func NewStack() *Stack {
 	}
 }
 
-func (s *Stack) GetHead() *Kind {
-	return &s.data[(s.headP-1)%StackLen]
+func (s *Stack) GetHead(i uint64) *Kind {
+	return &s.data[(s.headP-i)%StackLen]
 }
 
 func (s *Stack) AddHead(el Kind) {
