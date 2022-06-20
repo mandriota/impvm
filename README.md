@@ -24,6 +24,7 @@ INDEX
 | CODE  | LOOPF | LF    | EF    | GF    |
 | ----- | ----- | ----- | ----- | ----- |
 | 4-bit | 1-bit | 1-bit | 1-bit | 1-bit |
+
 *(total size: 8-bit)*
 
 ### Instruction Set
@@ -54,10 +55,10 @@ If flag is setted, then pops `N` from the stack and
 | code   | name | combination      | synopsis                    |
 | ------ | ---- | ---------------- | --------------------------- |
 | 0b100  | LF   | `LF`             | `x<y` (lower)               |
-| 0b011  | NLF  | `GF | EF`        | `x≥y` (not lower)           |               
+| 0b011  | NLF  | `GF`; `EF`       | `x≥y` (not lower)           |               
 | 0b010  | EF   | `EF`             | `x=y` (equal)               |
-| 0b101  | NEF  | `LF | GF`        | `x≠y` (not equal)           |
+| 0b101  | NEF  | `LF`; `GF`       | `x≠y` (not equal)           |
 | 0b001  | GF   | `GF`             | `x>y` (greater)             |
-| 0b110  | NGF  | `LF | EF`        | `x≤y` (not greater)         |
-| 0b111  | AF   | `LF | GF | EF`   | `1` (always)                |
+| 0b110  | NGF  | `LF`; `EF`       | `x≤y` (not greater)         |
+| 0b111  | AF   | `LF`; `GF`; `EF` | `1` (always)                |
 | 0b000  | NF   |                  | `PREVIOUS_SUCCESS` (noways) |
