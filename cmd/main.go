@@ -21,9 +21,9 @@ func main() {
 
 	m := imp.NewMachine(os.Stdout, os.Stdin)
 
-	m.Text = tryAssign(io.ReadAll(
-		tryAssign(os.Open(name)),
-	))
+	fs := tryAssign(os.Open(name))
+	m.Text = tryAssign(io.ReadAll(fs))
+	fs.Close()
 
 	m.Run()
 }
