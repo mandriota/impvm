@@ -1,7 +1,6 @@
 package imp
 
 import (
-	"math"
 	"os"
 	"testing"
 )
@@ -28,18 +27,19 @@ func TestMachineRun(t *testing.T) {
 	m.Run()
 }
 
-func TestMathModf(t *testing.T) {
-	const FMASK = ^uint64(0) >> 12
-	const EMASK = ^FMASK &^ (1 << 63)
+func BenchmarkMachineRun(b *testing.B) {
+	m := NewMachine(os.Stdout, os.Stdin)
 
-	bits := math.Float64bits(1. / 5)
+	m.Text = []uint8{
+		OP_CODE_REDO,
+		OP_CODE_REDO,
+		OP_CODE_LINC,
+		OP_CODE_SWAP,
+		OP_CODE_UNDO,
+	}
 
-	f := bits & FMASK
-	e := (bits & EMASK) >> 52
-
-	t.Logf("%d %d", f, e)
-
-	fnum := math.Pow(2, float64(e-1023))
-
-	t.Logf("%f", fnum)
+	for i := 0; i < b.N; i++ {
+		m.regs.TextP = 0
+		m.Run()
+	}
 }
