@@ -1,4 +1,4 @@
-package imp
+package impvm
 
 const StackLen = 1 << 20
 

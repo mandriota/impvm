@@ -1,4 +1,4 @@
-package imp
+package impvm
 
 import (
 	"os"

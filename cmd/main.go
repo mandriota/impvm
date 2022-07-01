@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	imp "github.com/MarkMandriota/ImpVM"
+	"github.com/MarkMandriota/impvm"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 		fmt.Scan(&name)
 	}
 
-	m := imp.NewMachine(os.Stdout, os.Stdin)
+	m := impvm.NewMachine(os.Stdout, os.Stdin)
 
 	fs := tryAssign(os.Open(name))
 	m.Text = tryAssign(io.ReadAll(fs))

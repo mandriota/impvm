@@ -1,4 +1,4 @@
-package imp
+package impvm
 
 const (
 	OP_FLAG_LOOP   = 1 << 4 << iota // sets k value from stack

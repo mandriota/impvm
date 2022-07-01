@@ -1,3 +1,3 @@
-module github.com/MarkMandriota/ImpVM
+module github.com/MarkMandriota/impvm
 
 go 1.18
